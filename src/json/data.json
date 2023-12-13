@@ -1,0 +1,83 @@
+[
+    {
+      "id": "1",
+      "title": "Revaty Homes",
+      "flats": "460 Flats",
+      "distance": "3 km",
+      "minPrice": "₹700",
+      "maxPrice": "₹9000"
+    },
+    {
+      "id": "2",
+      "title": "Romea Dots",
+      "flats": "460 Flats",
+      "distance": "3 km",
+      "minPrice": "₹700",
+      "maxPrice": "₹9000"
+    },
+    {
+      "id": "3",
+      "title": "Sunrise Apartments",
+      "flats": "300 Flats",
+      "distance": "5 km",
+      "minPrice": "₹800",
+      "maxPrice": "₹9500"
+    },
+    {
+      "id": "4",
+      "title": "Majestic Towers",
+      "flats": "700 Flats",
+      "distance": "2.5 km",
+      "minPrice": "₹750",
+      "maxPrice": "₹8500"
+    },
+    {
+      "id": "5",
+      "title": "Golden Meadows",
+      "flats": "400 Flats",
+      "distance": "4 km",
+      "minPrice": "₹900",
+      "maxPrice": "₹9800"
+    },
+    {
+      "id": "6",
+      "title": "Crystal Gardens",
+      "flats": "550 Flats",
+      "distance": "6 km",
+      "minPrice": "₹850",
+      "maxPrice": "₹9200"
+    },
+    {
+      "id": "7",
+      "title": "Ocean View Residency",
+      "flats": "250 Flats",
+      "distance": "1.5 km",
+      "minPrice": "₹720",
+      "maxPrice": "₹8700"
+    },
+    {
+      "id": "8",
+      "title": "Palm Grove Apartments",
+      "flats": "600 Flats",
+      "distance": "4.5 km",
+      "minPrice": "₹950",
+      "maxPrice": "₹10500"
+    },
+    {
+      "id": "9",
+      "title": "Skyline Towers",
+      "flats": "500 Flats",
+      "distance": "3.8 km",
+      "minPrice": "₹880",
+      "maxPrice": "₹9400"
+    },
+    {
+      "id": "10",
+      "title": "Sapphire Heights",
+      "flats": "350 Flats",
+      "distance": "2.2 km",
+      "minPrice": "₹780",
+      "maxPrice": "₹9100"
+    }
+  ]
+  
