@@ -17,7 +17,7 @@ export default function StackNavigator() {
         <NavigationContainer>
             <StatusBar style="light" backgroundColor="black" />
             <Stack.Navigator
-                initialRouteName="Main"
+                initialRouteName="BottomTab"
                 screenOptions={{
                     cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                 }}
