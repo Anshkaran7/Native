@@ -19,9 +19,9 @@ export default function BottomTabNavigator() {
                 },
                 tabBarIcon: ({ color, size }) => {
                     let iconComponent;
-
-                    if (route.name === 'Main') {
-                        iconComponent = <Entypo name="home" size={24} color={color} />;
+                    
+                    if (route.name === 'Home') {
+                        iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/home.svg")} />
                     } else if (route.name === 'Offers') {
                         iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/offers.svg")} />
                     } else if (route.name === 'Deals') {
