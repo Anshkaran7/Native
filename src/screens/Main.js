@@ -84,39 +84,16 @@ const Main = () => {
                         onPress={() => setIsFocused(true)}
                     >
                         <View>
-                            <LocalSvg
-                                width={36}
-                                height={36}
-                                asset={require("../../assets/search1.svg")}
-                                style={{ marginLeft: 8 }}
-                            />
+                            <LocalSvg width={36} height={36} asset={require("../../assets/search1.svg")} style={{ marginLeft: 8 }} />
                         </View>
 
                         <View style={styles.searchContent}>
-                            <EvilIcons
-                                name="search"
-                                size={24}
-                                color="#557184"
-                                style={styles.icon}
-                            />
+                            <EvilIcons name="search" size={24} color="#557184" style={styles.icon} />
 
-                            <Text
-                                style={{
-                                    fontStyle: 'italic',
-                                    color: '#557184',
-                                    fontSize: 12,
-                                }}
-                            >
-                                Search
-                            </Text>
+                            <Text style={{ fontStyle: 'italic', color: '#557184', fontSize: 12 }}>Search</Text>
                         </View>
                         <View>
-                            <LocalSvg
-                                width={36}
-                                height={36}
-                                asset={require("../../assets/search2.svg")}
-                                style={{ marginRight: 8 }}
-                            />
+                            <LocalSvg width={36} height={36} asset={require("../../assets/search2.svg")} style={{ marginRight: 8 }} />
                         </View>
                     </TouchableOpacity>
                 )}

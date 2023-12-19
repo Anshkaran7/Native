@@ -21,7 +21,7 @@ export default function BottomTabNavigator() {
                     let iconComponent;
 
                     if (route.name === 'Home') {
-                        iconComponent = <Entypo name="home" size={24} color="#557184" />;
+                        iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/home.svg")} />
                     } else if (route.name === 'Offers') {
                         iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/offers.svg")} />
                     } else if (route.name === 'Deals') {
