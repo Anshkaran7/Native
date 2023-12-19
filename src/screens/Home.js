@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Loading from '../components/Loading';
 import Card from '../components/Card';
 import data from '../json/data.json'
+import { useNavigation } from '@react-navigation/native';
 
 
 const Home = () => {
@@ -24,7 +25,11 @@ const Home = () => {
         setShowData(filteredData);
     }, [text]);
 
+    const navigation = useNavigation();
 
+const handleGoBack=()=>{
+    navigation.goBack()
+}
 
     return (
         <SafeAreaView style={styles.container}>
@@ -35,7 +40,9 @@ const Home = () => {
                     { borderColor: isFocused ? '#007DD0' : '#557184' },
                 ]}
             >
+                <TouchableOpacity onPress={handleGoBack}>
                 <AntDesign name="arrowleft" size={24} color="#557184" style={styles.icon} />
+                </TouchableOpacity>
                 <TextInput
                     placeholder="Search spaces, offers and deals"
                     placeholderTextColor="#557184"

@@ -19,7 +19,7 @@ export default function BottomTabNavigator() {
                 },
                 tabBarIcon: ({ color, size }) => {
                     let iconComponent;
-
+                    
                     if (route.name === 'Home') {
                         iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/home.svg")} />
                     } else if (route.name === 'Offers') {
@@ -27,7 +27,6 @@ export default function BottomTabNavigator() {
                     } else if (route.name === 'Deals') {
                         iconComponent = <LocalSvg width={28} height={28} asset={require("../../assets/Deal.svg")} color={'#557184'} />
                     }
-
 
                     return iconComponent;
                 },
@@ -48,11 +47,9 @@ export default function BottomTabNavigator() {
                 tabBarLabel: (route.name === 'Search') ? '' : route.name,
             })}
         >
-            <Tab.Screen name="Home" component={Main} />
+            <Tab.Screen name="Main" component={Main} />
             <Tab.Screen name='Offers' component={Main} />
             <Tab.Screen name='Deals' component={Main} />
-
-
         </Tab.Navigator>
     );
 }
