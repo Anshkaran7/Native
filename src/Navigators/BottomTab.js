@@ -1,8 +1,9 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Entypo } from '@expo/vector-icons';
 import { LocalSvg } from 'react-native-svg';
-import Main from '../screens/Main';
+import Offers from '../screens/Offers';
+import Deal from '../screens/Deal';
+import Home from '../screens/Home';
 
 const Tab = createBottomTabNavigator();
 
@@ -17,19 +18,28 @@ export default function BottomTabNavigator() {
                     fontSize: 12,
                     lineHeight: 14,
                 },
-                tabBarIcon: ({ color, size }) => {
+                tabBarIcon: ({ color, size, focused }) => {
                     let iconComponent;
-                    
+                
                     if (route.name === 'Home') {
-                        iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/home.svg")} />
-                    } else if (route.name === 'Offers') {
-                        iconComponent = <LocalSvg width={24} height={24} asset={require("../../assets/offers.svg")} />
-                    } else if (route.name === 'Deals') {
-                        iconComponent = <LocalSvg width={28} height={28} asset={require("../../assets/Deal.svg")} color={'#557184'} />
+                        iconComponent = focused ? 
+                            <LocalSvg width={24} height={24} asset={require("../../assets/home.svg")} /> :
+                            <LocalSvg width={24} height={24} asset={require("../../assets/home_lined.svg")} />;
+                    } 
+                    else if (route.name === 'Offers') {
+                        iconComponent = focused ? 
+                            <LocalSvg width={24} height={24} asset={require("../../assets/offer_filled.svg")} /> :
+                            <LocalSvg width={24} height={24} asset={require("../../assets/offer_lined.svg")} />;
+                    } 
+                    else if (route.name === 'Deals') {
+                        iconComponent = focused ? 
+                            <LocalSvg width={28} height={28} asset={require("../../assets/deal_filled.svg")} /> :
+                            <LocalSvg width={28} height={28} asset={require("../../assets/deal_lined.svg")} />;
                     }
-
+                
                     return iconComponent;
                 },
+
                 tabBarStyle: {
                     minHeight: 80,
                     paddingVertical: 16,
@@ -47,9 +57,9 @@ export default function BottomTabNavigator() {
                 tabBarLabel: (route.name === 'Search') ? '' : route.name,
             })}
         >
-            <Tab.Screen name="Main" component={Main} />
-            <Tab.Screen name='Offers' component={Main} />
-            <Tab.Screen name='Deals' component={Main} />
+            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name='Offers' component={Offers} />
+            <Tab.Screen name='Deals' component={Deal} />
         </Tab.Navigator>
     );
 }

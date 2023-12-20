@@ -7,8 +7,8 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import 'react-native-gesture-handler'
 import Home from "../screens/Home";
-import Main from "../screens/Main";
 import BottomTabNavigator from "./BottomTab";
+import SearchPage from "../screens/SearchPage";
 
 const Stack = createStackNavigator();
 
@@ -29,8 +29,8 @@ export default function StackNavigator() {
                 />
                 <Stack.Screen
                     options={{ headerShown: false }}
-                    name="Main"
-                    component={Main}
+                    name="SearchPage"
+                    component={SearchPage}
                 />
                 <Stack.Screen
                     options={{ headerShown: false }}
