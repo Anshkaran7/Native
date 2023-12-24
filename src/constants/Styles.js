@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { scaleFontSize } from "../utils/fontSize";
+import { scaleFontSize } from "./fontSize";
 
 export const Styles = StyleSheet.create({
     shadow: {

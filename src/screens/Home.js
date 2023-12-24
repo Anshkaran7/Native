@@ -8,6 +8,8 @@ import Card from '../components/Card';
 import { LocalSvg } from 'react-native-svg';
 import data from '../json/data.json';
 import { useNavigation } from '@react-navigation/native';
+import { Styles } from '../constants/Styles';
+
 
 const Home = () => {
     const [isFocused, setIsFocused] = useState(false);
@@ -73,12 +75,11 @@ const Home = () => {
                         {showData.length > 0 ? (
                             <View>
                                 <Text
-                                    style={{
-                                        fontSize: 24,
+                                    style={[Styles.xxlBoldText,{
+                                        fontSize:30                                                                                                                          ,
                                         color: '#004F84',
-                                        fontWeight: '700',
                                         marginTop: 10,
-                                    }}
+                                    }]}
                                 >
                                     Spaces
                                 </Text>
