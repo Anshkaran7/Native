@@ -30,14 +30,10 @@ const Main = () => {
         );
         setTimeout(() => {
             setShowData(filteredData);
-            setIsLoading(false);
+            setIsLoading(false); // Update isLoading when data is loaded
         }, 1000);
     }, [text]);
 
-    const handlePress = () => {
-        navigation.navigate('Home');
-    };
-    
     
     return (
         <ImageBackground
@@ -45,31 +41,90 @@ const Main = () => {
             style={{ flex: 1 }}
         >
             <SafeAreaView style={styles.container}>
-               
+                {isFocused ? (
+                    <View style={styles.searchBarContainer}>
+                        <AntDesign
+                            name="arrowleft"
+                            size={24}
+                            color="#557184"
+                            style={styles.icon}
+                        />
+                        <TextInput
+                            placeholder="Search spaces, offers and deals"
+                            placeholderTextColor="#557184"
+                            style={[
+                                styles.input,
+                                {
+                                    fontStyle: text ? 'normal' : 'italic',
+                                    fontWeight: text ? '500' : 'normal',
+                                    textAlign: 'left',
+                                },
+                            ]}
+                            value={text}
+                            onChangeText={(inputText) => setText(inputText)}
+                            onFocus={() => {
+                                setIsFocused2(true);
+                                setShowData([]); 
+                            }}
+                            onBlur={() => setIsFocused2(false)}
+                            clearTextOnFocus
+                        />
+                        {text.length > 0 && (
+                            <TouchableOpacity onPress={clearText} style={styles.clearButton}>
+                                <Text style={styles.clearButtonText}>Clear</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                ) : (
                     <TouchableOpacity
-
                         style={[
                             styles.searchContainer,
                             { borderColor: isFocused ? '#007DD0' : '#557184' },
                         ]}
-
-                        onPress={handlePress}
+                        onPress={() => setIsFocused(true)}
                     >
                         <View>
-                            <LocalSvg width={36} height={36} asset={require("../../assets/search1.svg")} style={{ marginLeft: 8 }} />
+                            <LocalSvg
+                                width={36}
+                                height={36}
+                                asset={require("../../assets/search1.svg")}
+                                style={{ marginLeft: 8 }}
+                            />
                         </View>
 
                         <View style={styles.searchContent}>
-                            <EvilIcons name="search" size={24} color="#557184" style={styles.icon} />
+                            <EvilIcons
+                                name="search"
+                                size={24}
+                                color="#557184"
+                                style={styles.icon}
+                            />
 
-                            <Text style={{ fontStyle: 'italic', color: '#557184', fontSize: 12 }}>Search</Text>
+                            <Text
+                                style={{
+                                    fontStyle: 'italic',
+                                    color: '#557184',
+                                    fontSize: 12,
+                                }}
+                            >
+                                Search
+                            </Text>
                         </View>
                         <View>
-                            <LocalSvg width={36} height={36} asset={require("../../assets/search2.svg")} style={{ marginRight: 8 }} />
+                            <LocalSvg
+                                width={36}
+                                height={36}
+                                asset={require("../../assets/search2.svg")}
+                                style={{ marginRight: 8 }}
+                            />
                         </View>
                     </TouchableOpacity>
-            
-                    <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
+                )}
+
+{isLoading ? (
+                    <Loading />
+                ) : (
+                    <ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
                         {showData.length > 0 ? (
                             <View>
                                 <Text
@@ -88,7 +143,7 @@ const Main = () => {
                             </View>
                         ) : null}
                     </ScrollView>
-
+                )}
             </SafeAreaView>
         </ImageBackground>
     );
