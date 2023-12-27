@@ -1,13 +1,25 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const Offers = () => {
   return (
-    <SafeAreaView style={{display:'flex', alignItems:'center', justifyContent:'center', height:'100%'}}>
-      <Text style={{color:'black', fontSize:16}}>Offers</Text>
-    </SafeAreaView>
-  )
-}
+    <View style={styles.container}>
+      <Text style={styles.text}>Offers</Text>
+    </View>
+  );
+};
 
-export default Offers
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+  },
+  text: {
+    color: "black",
+    fontSize: 16,
+  },
+});
+
+export default Offers;

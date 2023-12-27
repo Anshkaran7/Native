@@ -7,7 +7,7 @@ export const getFontSize = (size) => {
   return Math.round(baseFontSize + adjustedSize);
 };
 
-export function scaleFontSize(fontSize) {
+export const scaleFontSize = (fontSize) => {
   const scaledFontSize = fontSize / PixelRatio.getFontScale() - 2;
   return scaledFontSize;
-}
+};

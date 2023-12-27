@@ -1,12 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { Styles } from '../constants/Styles';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
+import { Styles } from "../constants/Styles";
 
-const Card = ({data}) => {
+const Card = ({ data }) => {
   return (
     <View style={styles.cardContainer}>
-      <Text style={styles.titleText}>{data.title}</Text>
+      <Text style={[Styles.mdSemiBold, styles.titleText]}>{data.title}</Text>
       <View style={styles.rowContainer}>
         <Text style={styles.infoText}>{data.flats}</Text>
         <Text style={styles.dot}>•</Text>
@@ -28,11 +28,11 @@ const Card = ({data}) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     marginTop: 20,
     padding: 16,
     borderRadius: 12,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -43,48 +43,47 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   titleText: {
-    color: '#004F84',
-    fontSize: 20,
-    fontWeight: '800',
+    color: "#004F84",
+    fontSize: 19,
     marginBottom: 5,
   },
   rowContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 10,
   },
 
   infoText: {
-    color: '#557184',
+    color: "#557184",
     fontSize: 14,
     marginRight: 10,
   },
 
   dot: {
     fontSize: 20,
-    color: '#557184',
+    color: "#557184",
     marginRight: 10,
   },
   infoContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 5,
   },
   minMaxText: {
     fontSize: 14,
-    fontWeight: '300',
-    fontStyle: 'italic',
+    fontWeight: "300",
+    fontStyle: "italic",
   },
   priceText: {
     fontSize: 14,
-    fontWeight: '500',
-    fontStyle: 'italic',
-    color: '#557184',
+    fontWeight: "500",
+    fontStyle: "italic",
+    color: "#557184",
   },
   campaignText: {
     fontSize: 14,
-    fontWeight: '300',
-    fontStyle: 'italic',
+    fontWeight: "300",
+    fontStyle: "italic",
   },
 });
 

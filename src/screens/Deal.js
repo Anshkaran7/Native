@@ -1,13 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from "react";
+import { View, Text } from "react-native";
 
 const Deal = () => {
   return (
-    <SafeAreaView style={{display:'flex', alignItems:'center', justifyContent:'center', height:'100%'}}>
-      <Text style={{color:'black', fontSize:16}}>Deals</Text>
-    </SafeAreaView>
-  )
-}
+    <View
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
+      }}
+    >
+      <Text style={{ color: "black", fontSize: 16 }}>Deals</Text>
+    </View>
+  );
+};
 
-export default Deal
+export default Deal;
