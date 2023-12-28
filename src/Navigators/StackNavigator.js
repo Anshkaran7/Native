@@ -10,6 +10,7 @@ import "react-native-gesture-handler";
 import BottomTabNavigator from "./BottomTab";
 import Home from "../screens/Home";
 import SearchPage from "../screens/SearchPage";
+import OffersRWA from "../screens/OffersRWA";
 
 const Stack = createStackNavigator();
 
@@ -18,7 +19,7 @@ export default function StackNavigator() {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="black" />
       <Stack.Navigator
-        initialRouteName="BottomTab"
+        initialRouteName="OffersRWA"
         screenOptions={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
@@ -32,6 +33,11 @@ export default function StackNavigator() {
           options={{ headerShown: false }}
           name="SearchPage"
           component={SearchPage}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="OffersRWA"
+          component={OffersRWA}
         />
         <Stack.Screen
           options={{ headerShown: false }}

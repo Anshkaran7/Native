@@ -108,11 +108,11 @@ const styles = StyleSheet.create({
     },
     offeredDatesColumn: {
         flexDirection: 'column',
-        textAlign: 'right',
         color: '#557184',
         fontSize: 12,
     },
     offeredDatesLabel: {
+        textAlign: 'right',
         fontSize: 12,
         fontWeight: "200",
     },
