@@ -1,9 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Styles } from "../../constants/Styles";
 
-import { Styles } from "../constants/Styles";
-
-const Card = ({ data }) => {
+const HomeCard = ({ data }) => {
   return (
     <View style={styles.cardContainer}>
       <Text style={[Styles.mdSemiBold, styles.titleText]}>{data.title}</Text>
@@ -32,14 +31,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 16,
     borderRadius: 12,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
     marginBottom: 16,
   },
   titleText: {
@@ -87,4 +78,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Card;
+export default HomeCard;

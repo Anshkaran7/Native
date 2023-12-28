@@ -13,10 +13,9 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { LocalSvg } from "react-native-svg";
-
-import Card from "../components/Card";
 import { Styles } from "../constants/Styles";
 import data from "../json/data.json";
+import HomeCard from "../components/Card/HomeCard";
 
 const Home = () => {
   const [text] = useState("");
@@ -37,9 +36,9 @@ const Home = () => {
 
   return (
     <ImageBackground
-      source={require("../../assets/gradient.png")}
-      style={styles.backgroundImage}
-    >
+    source={require('../../assets/gradient.png')}
+    style={{ flex: 1 }}
+>
       <SafeAreaView style={styles.container}>
         <TouchableOpacity
           style={[styles.searchContainer, { borderColor: "#557184" }]}
@@ -80,7 +79,7 @@ const Home = () => {
                 Spaces
               </Text>
               {showData.map((item) => (
-                <Card key={item.id} data={item} />
+                <HomeCard key={item.id} data={item} />
               ))}
             </View>
           ) : null}
@@ -91,9 +90,6 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
-  backgroundImage: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     marginHorizontal: 16,

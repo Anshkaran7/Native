@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "title": "Asset Miguara",
+        "info": "Signage board",
+        "status": "Accepted",
+        "price": "9000",
+        "offeredDates": [ "10 Mar","11 Mar", "12 Mar"],
+        "date":"today"
+    },
+    {
+        "id": 2,
+        "title": "Prestige Misty Meadows",
+        "info": "Offline Kiosk (4x4)",
+        "status": "Pending Acceptance",
+        "price": "5000",
+        "offeredDates": [ "10 Mar","11 Mar", "12 Mar"],
+        "date":"tomorrow"
+
+    }
+]

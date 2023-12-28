@@ -94,8 +94,8 @@ export default function BottomTabNavigator() {
         tabBarLabel: route.name === "Search" ? "" : route.name,
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Offers" component={Offers} />
+      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Deals" component={Deal} />
     </Tab.Navigator>
   );
