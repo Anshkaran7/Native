@@ -4,6 +4,7 @@ import { Styles } from '../../constants/Styles'
 import { LocalSvg } from "react-native-svg";
 import SelectCampaignCard from './SelectCampaignCard';
 import SelectDateCard from './SelectDateCard';
+import { useNavigation } from '@react-navigation/native';
 
 const OffersRWACard = () => {
     const [selectedCampaignOption, setSelectedCampaignOption] = useState(null);
@@ -18,10 +19,12 @@ const OffersRWACard = () => {
         }
     }, [selectedCampaignOption, selectedDates]);
     
+    const navigation = useNavigation();
     
     const handleOfferClick = () => {
         if (selectedCampaignOption !== null && selectedDates.every(date => date !== null)) {
             console.log('Offer clicked!');
+            navigation.navigate("Offers")
            console.log(selectedCampaignOption, selectedDates);
         }
     };

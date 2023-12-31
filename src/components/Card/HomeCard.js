@@ -1,10 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Styles } from "../../constants/Styles";
+import { useNavigation } from "@react-navigation/native";
 
 const HomeCard = ({ data }) => {
+
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    navigation.navigate("OffersRWA");
+  };
   return (
-    <View style={styles.cardContainer}>
+    <TouchableOpacity onPress={handlePress} style={styles.cardContainer}>
       <Text style={[Styles.mdSemiBold, styles.titleText]}>{data.title}</Text>
       <View style={styles.rowContainer}>
         <Text style={styles.infoText}>{data.flats}</Text>
@@ -21,7 +28,7 @@ const HomeCard = ({ data }) => {
         <Text style={styles.priceText}>{data.maxPrice}</Text>
         <Text style={styles.campaignText}> - Campaign Type</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

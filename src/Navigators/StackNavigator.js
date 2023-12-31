@@ -19,7 +19,7 @@ export default function StackNavigator() {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="black" />
       <Stack.Navigator
-        initialRouteName="OffersRWA"
+        initialRouteName="BottomTab"
         screenOptions={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
