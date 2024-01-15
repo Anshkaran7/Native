@@ -10,26 +10,32 @@ const SelectDateCard = ({ setSelectedDates }) => {
     const [currentOption, setCurrentOption] = useState(null);
 
     const handleSelectDate = (date) => {
-        const updatedDates = [...selectedDates];
-        
-        switch (currentOption) {
-            case 1:
-                updatedDates[0] = date.toDateString();
-                break;
-            case 2:
-                updatedDates[1] = date.toDateString();
-                break;
-            case 3:
-                updatedDates[2] = date.toDateString();
-                break;
-            default:
-                break;
+        if (date) {
+            const updatedDates = [...selectedDates];
+    
+            switch (currentOption) {
+                case 1:
+                    updatedDates[0] = date.toDateString();
+                    break;
+                case 2:
+                    updatedDates[1] = date.toDateString();
+                    break;
+                case 3:
+                    updatedDates[2] = date.toDateString();
+                    break;
+                default:
+                    break;
+            }
+    
+            setSelectedDatesState(updatedDates);
+            setSelectedDates(updatedDates.filter(date => date !== null));
+            setDatePickerVisible(false);
+        } else {
+            setDatePickerVisible(false);
+            
         }
-
-        setSelectedDatesState(updatedDates);
-        setSelectedDates(updatedDates.filter(date => date !== null));
-        setDatePickerVisible(false);
     };
+    
 
     return (
         <View>
