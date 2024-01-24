@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from 'react';
 import {
   useFonts,
   IBMPlexSerif_100Thin,
@@ -9,7 +8,9 @@ import {
   IBMPlexSerif_600SemiBold,
   IBMPlexSerif_700Bold,
 } from "@expo-google-fonts/ibm-plex-serif";
+import React, { useEffect, useRef } from "react";
 import { StyleSheet, View, Animated } from "react-native";
+
 import StackNavigator from "./src/Navigators/StackNavigator";
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,13 +23,13 @@ export default function App() {
     IBMPlexSerif_700Bold,
   });
 
-  const scaleValue = useRef(new Animated.Value(10)).current; 
+  const scaleValue = useRef(new Animated.Value(10)).current;
 
   useEffect(() => {
     Animated.timing(scaleValue, {
       toValue: 1,
       duration: 700,
-      useNativeDriver: true, 
+      useNativeDriver: true,
     }).start();
   }, []);
 
@@ -36,7 +37,7 @@ export default function App() {
     return (
       <View style={styles.loadingContainer}>
         <Animated.Image
-          source={require('./assets/splash.png')}
+          source={require("./assets/splash.png")}
           style={[styles.imageStyle, { transform: [{ scale: scaleValue }] }]}
         />
       </View>
@@ -51,11 +52,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#004F84',
+    backgroundColor: "#004F84",
   },
   imageStyle: {
-    width: 90, 
+    width: 90,
     height: 90,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
 });

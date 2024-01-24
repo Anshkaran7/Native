@@ -1,34 +1,43 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Styles } from "../../constants/Styles";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { View, Text, StyleSheet, Pressable } from "react-native";
+import { useSelector } from "react-redux";
 
-const HomeCard = ({ data }) => {
+import { Styles } from "../../constants/Styles";
+import { selectIsLoggedIn } from "../../redux/slices/authSlices";
 
+const InfoContainer = ({ label, value, campaignText }) => {
+  return (
+    <View style={styles.infoContainer}>
+      <Text style={styles.minMaxText}>{label}</Text>
+      <Text style={styles.priceText}>{value}</Text>
+      <Text style={styles.campaignText}> - Campaign Type</Text>
+    </View>
+  );
+};
+
+const HomeCard = ({ data, onButtonPress }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const navigation = useNavigation();
 
-  const handlePress = () => {
-    navigation.navigate("OffersRWA");
-  };
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.cardContainer}>
+    <Pressable
+      onPress={
+        isLoggedIn
+          ? () => navigation.navigate("OfferGeneration")
+          : onButtonPress
+      }
+      style={styles.cardContainer}
+    >
       <Text style={[Styles.mdSemiBold, styles.titleText]}>{data.title}</Text>
       <View style={styles.rowContainer}>
         <Text style={styles.infoText}>{data.flats}</Text>
         <Text style={styles.dot}>•</Text>
         <Text style={styles.infoText}>{data.distance}</Text>
       </View>
-      <View style={styles.infoContainer}>
-        <Text style={styles.minMaxText}>Min </Text>
-        <Text style={styles.priceText}>{data.minPrice}</Text>
-        <Text style={styles.campaignText}> - Campaign Type</Text>
-      </View>
-      <View style={styles.infoContainer}>
-        <Text style={styles.minMaxText}>Max </Text>
-        <Text style={styles.priceText}>{data.maxPrice}</Text>
-        <Text style={styles.campaignText}> - Campaign Type</Text>
-      </View>
-    </TouchableOpacity>
+      <InfoContainer label="Min  " value={data.minPrice} />
+      <InfoContainer label="Max  " value={data.maxPrice} />
+    </Pressable>
   );
 };
 
@@ -50,13 +59,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
-
   infoText: {
     color: "#557184",
     fontSize: 14,
     marginRight: 10,
   },
-
   dot: {
     fontSize: 20,
     color: "#557184",
