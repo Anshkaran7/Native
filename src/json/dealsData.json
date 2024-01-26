@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Asset Miguara",
+        "info": "Signage board",
+        "price": "9000",
+        "date": "10 Mar",
+        "campaign": "today"
+    },
+    {
+        "id": 2,
+        "title": "Prestige Misty Meadows",
+        "info": "Offline Kiosk (4x4)",
+        "price": "5000",
+        "date": "11 Mar",
+        "campaign": "tomorrow"
+    },
+    {
+        "id": 3,
+        "title": "Asset Miguara",
+        "info": "Standee",
+        "price": "750",
+        "date": "14 Feb",
+        "campaign":"today"
+    }
+]

@@ -1,5 +1,5 @@
 import { EvilIcons, AntDesign } from "@expo/vector-icons";
-import React from "react";
+import React, { useState } from "react";
 import {
   StatusBar,
   ImageBackground,
@@ -16,8 +16,28 @@ import { LocalSvg } from "react-native-svg";
 import OffersCard from "../components/Card/OffersCard";
 import { Styles } from "../constants/Styles";
 import data from "../json/offersData.json";
+import CustomModal from "../components/Modal";
 
 const Offers = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedTab, setSelectedTab] = useState('upcoming');
+  const [selectedTab1, setSelectedTab1] = useState('all');
+
+  const toggleModal = () => {
+    setModalVisible(!modalVisible);
+  };
+
+
+
+  const changeTab = (tab) => {
+    setSelectedTab(tab);
+  };
+
+  const changeTab1 = (tab) => {
+    setSelectedTab1(tab);
+  };
+
+
   const todayData = data.filter((item) => item.date === "today");
   const tomorrowData = data.filter((item) => item.date === "tomorrow");
 
@@ -63,12 +83,14 @@ const Offers = () => {
               <Text style={[Styles.xxlBoldText, style.spacesTitle]}>
                 Offers
               </Text>
-              <TouchableOpacity style={style.upcomingButton}>
-                <Text style={[Styles.mdSemiBold, style.upcomingButtonText]}>
-                  Upcoming: All
-                  <AntDesign name="caretdown" size={14} color="white" />
-                </Text>
+              <TouchableOpacity
+                style={[style.upcomingButton, Styles.mdSemiBold]}
+                onPress={toggleModal}
+              >
+                <Text style={style.upcomingButtonText}>Upcoming:</Text>
+                <AntDesign name="caretdown" size={14} color="white" />
               </TouchableOpacity>
+
             </View>
 
             {/* Campaigns Today */}
@@ -92,6 +114,16 @@ const Offers = () => {
             </View>
           </View>
         </ScrollView>
+
+        <CustomModal
+          modalVisible={modalVisible}
+          toggleModal={toggleModal}
+          selectedTab={selectedTab}
+          selectedTab1={selectedTab1}
+          changeTab={changeTab}
+          changeTab1={changeTab1}
+          type={'offers'}
+        />
       </SafeAreaView>
     </ImageBackground>
   );
@@ -154,12 +186,16 @@ const style = StyleSheet.create({
   },
   upcomingButton: {
     backgroundColor: "#007DD0",
+    flexDirection: "row",
     borderRadius: 18,
     paddingHorizontal: 10,
+    paddingVertical: 5,
+    alignItems: "center",
   },
   upcomingButtonText: {
     color: "white",
     fontSize: 12,
+    marginRight: 6,
   },
   campaignContainer: {
     marginTop: 10,
