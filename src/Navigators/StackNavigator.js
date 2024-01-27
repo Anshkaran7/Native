@@ -15,6 +15,7 @@ import Home from "../screens/Home";
 import OfferGeneration from "../screens/OfferGeneration";
 import PersonaScreen from "../screens/PersonaSelection";
 import SearchPage from "../screens/SearchPage";
+import DealDetails from "../screens/DealDetails";
 
 const Stack = createStackNavigator();
 
@@ -67,6 +68,11 @@ export default function StackNavigator() {
           options={{ headerShown: false }}
           name="AgentReg"
           component={AgentRegScreen}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="DealsDetails"
+          component={DealDetails}
         />
       </Stack.Navigator>
     </NavigationContainer>

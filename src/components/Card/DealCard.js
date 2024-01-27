@@ -1,13 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
+import { View, Text, StyleSheet, TouchableOpacity, Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Styles } from "../../constants/Styles";
 
-const DealCard = ({ data }) => {
+const DealCard = ({ data, type }) => {
     const textStyle = Styles.mdSemiBold;
+    const navigation = useNavigation();
 
     return (
-        <View style={styles.mainContainer}>
+        <Pressable style={styles.mainContainer}
+        onPress={() => type === 'dealsDetails' ? null : navigation.navigate('DealsDetails')}
+        >
+        <View >
             <View style={styles.cardContainer}>
                 <Text style={[textStyle, styles.titleText]}>{data.title}</Text>
                 <View style={styles.infoRow}>
@@ -26,11 +30,37 @@ const DealCard = ({ data }) => {
                             {data.date}
                         </Text>
 
-
                     </View>
+
                 </View>
+                { type === 'dealsDetails' ? (
+                    <View style={{
+                        flexDirection: 'row',
+                        alignItems:'center',
+                        gap: 10,
+                        marginTop: 10
+                    }}>
+                        <TouchableOpacity style={{
+                            borderColor: '#007DD0',
+                            borderWidth: 1,
+                            borderRadius: 18,
+                            paddingHorizontal: 20,
+                        }}>
+                            <Text style={[Styles.mdSemiBold,{ color: '#007DD0', fontSize: 12, marginBottom:2 }]}>Chat</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={{
+                            backgroundColor: '#007DD0',
+                            borderRadius: 18,
+                            paddingHorizontal: 20,
+                        }}>
+                            <Text style={[Styles.mdSemiBold,{ color: 'white', fontSize: 12, marginBottom:2 }]}>Invoice</Text>
+                        </TouchableOpacity>
+                    </View>
+                ) : null}
             </View>
         </View>
+        </Pressable>
     );
 };
 
