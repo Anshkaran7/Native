@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Modal as RNModal, Pressable } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Modal as RNModal, Pressable, ScrollView } from 'react-native';
 import { Styles } from '../constants/Styles';
 import { LocalSvg } from 'react-native-svg';
 
@@ -40,12 +40,12 @@ const CustomModal = ({ modalVisible,
                                     backgroundColor: selectedTab === 'upcoming' ? '#007DD0' : 'white',
                                     borderTopLeftRadius: 18,
                                     borderBottomLeftRadius: 18,
-                                    paddingHorizontal: 16,
+                                    paddingHorizontal: 14,
                                     borderWidth: 1,
                                     borderColor: '#007DD0',
                                     paddingVertical: 8,
                                 }} onPress={() => changeTab('upcoming')}>
-                                    <Text style={{ color: selectedTab === 'upcoming' ? 'white' : '#007DD0', fontSize:12 }}>Upcoming</Text>
+                                    <Text style={{ color: selectedTab === 'upcoming' ? 'white' : '#007DD0', fontSize: 10 }}>Upcoming</Text>
                                 </Pressable>
                                 <Pressable
                                     style={{
@@ -54,63 +54,64 @@ const CustomModal = ({ modalVisible,
                                         borderWidth: 1,
                                         borderColor: '#007DD0',
                                         borderBottomRightRadius: 18,
-                                        paddingHorizontal: 16,
+                                        paddingHorizontal: 14,
                                         paddingVertical: 8,
                                     }}
                                     onPress={() => changeTab('archieved')}
                                 >
-                                    <Text style={{ color: selectedTab === 'archieved' ? 'white' : '#007DD0', fontSize:12 }}>Archieved</Text>
+                                    <Text style={{ color: selectedTab === 'archieved' ? 'white' : '#007DD0', fontSize: 10 }}>Archieved</Text>
                                 </Pressable>
                             </View>
                         </View>
                         <View style={style.separator} />
 
-{ type === 'offers' ? (
-    <>
-                        <View style={{ marginTop: 22, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Text style={[Styles.mdText, { color: '#557184', fontSize: 14, marginRight: 10 }]}
-                            >Offer Acceptance</Text>
-                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                                <Pressable style={{
-                                    backgroundColor: selectedTab1 === 'all' ? '#007DD0' : 'white',
-                                    borderTopLeftRadius: 18,
-                                    borderBottomLeftRadius: 18,
-                                    paddingHorizontal: 16,
-                                    borderWidth: 1,
-                                    borderColor: '#007DD0',
-                                    paddingVertical: 8,
-                                }} onPress={() => changeTab1('all')}>
-                                    <Text style={{ color: selectedTab1 === 'all' ? 'white' : '#007DD0', fontSize:12 }}>All</Text>
-                                </Pressable>
-                                <Pressable style={{
-                                    backgroundColor: selectedTab1 === 'pending' ? '#007DD0' : 'white',
-                                    paddingHorizontal: 16,
-                                    borderColor: '#007DD0',
-                                    borderTopWidth:1,
-                                    borderBottomWidth:1,
-                                    paddingVertical: 8,
-                                }} onPress={() => changeTab1('pending')}>
-                                    <Text style={{ color: selectedTab1 === 'pending' ? 'white' : '#007DD0', fontSize:12 }}>Pending</Text>
-                                </Pressable>
-                                <Pressable
-                                    style={{
-                                        backgroundColor: selectedTab1 === 'accepted' ? '#007DD0' : 'white',
-                                        borderTopRightRadius: 18,
-                                        borderWidth: 1,
-                                        borderColor: '#007DD0',
-                                        borderBottomRightRadius: 18,
-                                        paddingHorizontal: 16,
-                                        paddingVertical: 8,
-                                    }}
-                                    onPress={() => changeTab1('accepted')}
-                                >
-                                    <Text style={{ color: selectedTab1 === 'accepted' ? 'white' : '#007DD0', fontSize:12 }}>Accepted</Text>
-                                </Pressable>
-                            </View>
-                        </View>
-                        <View style={style.separator} />
-</>
-) : null}
+
+                        {type === 'offers' ? (
+                            <ScrollView style={{ width:'100%'}} horizontal showsHorizontalScrollIndicator={false} >
+                                <View style={{ marginTop: 22, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width:'100%' }}>
+                                    <Text style={[Styles.mdText, { color: '#557184', fontSize: 14, marginRight: 10 }]}
+                                    >Offer Acceptance</Text>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                        <Pressable style={{
+                                            backgroundColor: selectedTab1 === 'all' ? '#007DD0' : 'white',
+                                            borderTopLeftRadius: 18,
+                                            borderBottomLeftRadius: 18,
+                                            paddingHorizontal: 14,
+                                            borderWidth: 1,
+                                            borderColor: '#007DD0',
+                                            paddingVertical: 8,
+                                        }} onPress={() => changeTab1('all')}>
+                                            <Text style={{ color: selectedTab1 === 'all' ? 'white' : '#007DD0', fontSize: 10 }}>All</Text>
+                                        </Pressable>
+                                        <Pressable style={{
+                                            backgroundColor: selectedTab1 === 'pending' ? '#007DD0' : 'white',
+                                            paddingHorizontal: 14,
+                                            borderColor: '#007DD0',
+                                            borderTopWidth: 1,
+                                            borderBottomWidth: 1,
+                                            paddingVertical: 8,
+                                        }} onPress={() => changeTab1('pending')}>
+                                            <Text style={{ color: selectedTab1 === 'pending' ? 'white' : '#007DD0', fontSize: 10 }}>Pending</Text>
+                                        </Pressable>
+                                        <Pressable
+                                            style={{
+                                                backgroundColor: selectedTab1 === 'accepted' ? '#007DD0' : 'white',
+                                                borderTopRightRadius: 18,
+                                                borderWidth: 1,
+                                                borderColor: '#007DD0',
+                                                borderBottomRightRadius: 18,
+                                                paddingHorizontal: 14,
+                                                paddingVertical: 8,
+                                            }}
+                                            onPress={() => changeTab1('accepted')}
+                                        >
+                                            <Text style={{ color: selectedTab1 === 'accepted' ? 'white' : '#007DD0', fontSize: 10 }}>Accepted</Text>
+                                        </Pressable>
+                                    </View>
+                                </View>
+                                <View style={style.separator} />
+                            </ScrollView>
+                        ) : null}
                         <View style={{
                             flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'
                         }}>
